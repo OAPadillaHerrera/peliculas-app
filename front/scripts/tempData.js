@@ -1,32 +1,41 @@
-const tempData = [
+
+
+/*const tempData = [
   {
-    title: "Guardians of the Galaxy Vol. 2",
-    year: 2017,
-    director: "James Gunn",
-    duration: "2h 16min",
-    genre: ["Action", "Adventure", "Comedy"],
-    rate: 7.7,
+    title: "Apocalypse Now",
+    year: 1979,
+    director: "Francis Ford Coppola",
+    duration: "2h 27min",
+    genre: ["Drama", "War"],
+    rate: 8.4,
     poster:
-      "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg",
+      "https://m.media-amazon.com/images/I/517A5XYN5AL._SX300_SY300_QL70_FMwebp_.jpg",
   },
   {
-    title: "Star Wars: Episode IV - A New Hope",
-    year: 1977,
-    director: "George Lucas",
-    duration: "2h 1min",
-    genre: ["Action", "Adventure", "Fantasy", "Sci-Fi"],
-    rate: 8.7,
+    title: "Full Metal Jacket",
+    year: 1987,
+    director: "Stanley Kubrick",
+    duration: "1h 56min",
+    genre: ["Drama", "War"],
+    rate: 8.3,
     poster:
-      "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg",
+      "https://m.media-amazon.com/images/I/41TvQPuP-XL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
   },
   {
-    title: "The Lord of the Rings: The Fellowship of the Ring",
-    year: 2001,
-    director: "Peter Jackson",
-    duration: "2h 58min",
-    genre: ["Action", "Adventure", "Drama", "Fantasy"],
-    rate: 8.8,
+    title: "Platoon",
+    year: 1986,
+    director: "Oliver Stone",
+    duration: "2h",
+    genre: ["Drama", "War"],
+    rate: 8.1,
     poster:
-      "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
+      "https://m.media-amazon.com/images/I/51IjVGsDQML.__AC_SX300_SY300_QL70_FMwebp_.jpg",
   },
-];
+];*/
+
+/*----------------------------------*/
+
+
+/*<script src="./scripts/tempData.js"></script>*/
+
+/*const url = "https://students-api.up.railway.app/movies";*/

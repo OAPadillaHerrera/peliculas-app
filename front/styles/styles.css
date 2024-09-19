@@ -1,0 +1,274 @@
+
+
+/* 
+Este archivo CSS define los estilos visuales del portal "Cine de Culto". Se utilizan varios estilos personalizados 
+para la disposición de elementos como el encabezado, la navegación, el contenido principal y el pie de página. 
+Se hace uso de flexbox para la alineación y organización de las secciones. Además, se añaden efectos interactivos, 
+como transiciones suaves y escalado en tarjetas y botones. Se aplica una paleta de colores en tonos oscuros, con 
+detalles en dorado, blanco y azul claro para mantener una estética sobria y elegante.
+*/
+
+body {
+
+  justify-content: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: black; 
+  color: white; 
+
+}
+
+.main-header {
+
+  display: flex;
+  justify-content: center; /* Centramos el logo */
+  align-items: center;
+  padding: 20px;
+  background-color: gray; 
+  border-bottom: 2px solid lightblue;
+
+}
+
+.logo {
+
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: darkgoldenrod; 
+
+}
+
+.logo .cine {
+
+  color: white; /* Blanco para la palabra "Cine" */
+
+}
+
+#colorh1 {
+
+  text-align: center;
+  color:darkgoldenrod; 
+  font-size: xx-large;
+  margin: 20px 0;
+
+}
+
+main {
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.main-nav {
+
+  margin: 20px 0;
+  width: 49%;
+  background-color: gray; 
+  padding: 0; 
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.main-nav ul {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+  padding: 0; 
+  border-radius: 5px;
+
+}
+
+.main-nav a {
+
+  text-decoration: none;
+  color: white; 
+  transition: color 0.3s;
+
+}
+
+.main-nav a:hover {
+
+  color: lightblue; /
+
+}
+
+
+.dynamic-content {
+
+  margin: 25px;
+  width: 60%;
+  background-color: yellow;
+  padding: 40px;
+  text-align: center; 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:space-around;
+  flex-direction: row;
+
+}
+
+.main-footer {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: gray;
+  border-top: 2px solid lightblue; 
+  color: white; 
+
+}
+
+.movie {
+
+  background-color: rgb(44, 42, 42); 
+  border-radius: 5px;
+  padding:0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+
+}
+
+.movie:hover {
+
+  transform: scale(1.1); /*Escala la imagen un 10% más grande */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+
+}
+
+.justificarh3rec {
+
+  text-align: justify;
+  color: lightblue;
+
+}
+
+
+.justificarh3adn {
+
+  text-align: center;
+  color: lightblue;
+
+
+}
+
+.justificarpadn {
+
+  text-align: justify;
+
+}
+
+.cardsrec {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#colorh2 {
+
+  text-align: center;
+  color: darkgoldenrod; 
+  margin: 20px 0; 
+
+}
+
+.cardshadow {
+
+  border-radius: 5px;
+  padding:0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+
+}
+
+.cardshadow:hover {
+
+  transform: scale(1.1); /*Escala la imagen un 10% más grande */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+
+}
+
+.moviecolorp {
+
+  color:lightgray;
+
+}
+
+.centrar-formulario {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border: 1px solid white; 
+  padding-top: 40px;  
+  margin-top: 5px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+  border-radius: 0.6%;
+
+}
+
+.centrar-inputs {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+  
+
+.centrar-botones {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+  
+}
+
+
+.botones {
+
+  border-radius: 6%;
+  background-color: white;
+  color: gray;
+  margin: 5px;
+  font-weight: bold;
+  border-radius: 5%;
+
+}
+
+.inputs {
+
+  background-color: white;
+  color: black;
+  border-radius: 3%;
+
+}
+
+
+
+

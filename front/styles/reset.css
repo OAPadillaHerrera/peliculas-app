@@ -1,0 +1,149 @@
+
+/* Reset CSS*/
+
+/* 
+Este archivo CSS de reinicio (reset.css) elimina el estilo por defecto que los navegadores aplican a los elementos HTML,
+como márgenes, rellenos, bordes y tipografía, garantizando una base uniforme para el diseño en todos los navegadores.
+Se asegura que todos los elementos se comporten de forma consistente y permite que los estilos personalizados se apliquen 
+sin interferencias de los estilos predefinidos. También incluye compatibilidad con elementos HTML5 en navegadores más antiguos.
+*/
+
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+
+video {
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+
+section {
+
+    display: block;
+
+}
+
+body {
+
+    line-height: 1;
+
+}
+
+ol,
+
+ul {
+
+    list-style: none;
+
+}
+
+blockquote,
+
+q {
+
+    quotes: none;
+
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+
+q:after {
+
+    content: '';
+    content: none;
+
+}
+
+table {
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+}
