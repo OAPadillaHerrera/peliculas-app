@@ -1,3 +1,3 @@
 
 
-Diseño e Implementación De una Aplicación Web Interactiva para Presentación de Películas.
+Desarrollo De una Aplicación Web Interactiva para Presentación de Películas.
