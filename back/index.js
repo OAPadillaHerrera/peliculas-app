@@ -1,26 +1,41 @@
 
 
-/*
-Este archivo inicializa el servidor y establece la conexión a la base de datos.
-- `dbCon`: función para conectar con la base de datos.
-- Si la conexión es exitosa, el servidor empieza a escuchar en el puerto 3000.
-- En caso de error, se muestra un mensaje de error en la consola.
-*/
+/**
+ * Entry point for the application.
+ * - Connects to the database.
+ * - Starts the server if the connection is successful.
+ */
 
-const app = require ("./src/server"); 
+require ("dotenv").config (); 
+const app = require ("./src/server");
+const dbCon = require ("./src/config/dbCon");
+const PORT = process.env.PORT || 3000;
 
-const dbCon = require ("./src/config/dbCon"); 
+if (!process.env.PORT) {
 
-dbCon ().then (() => {
+  console.warn ("[WARN] PORT not set in .env, defaulting to 3000");
+}
 
-  app.listen (3000, () => {
+const getTimestamp = () => new Date ().toISOString ();
 
-    console.log ("SERVIDOR ESCUCHANDO EN EL PUERTO 3000! ...");
 
-  });
+(async () => {
 
-}).catch (err => {
+  try {
 
-  console.error ("ERROR AL CONECTAR CON LA BASE DE DATOS: ", err);
-  
-});
+    await dbCon ();
+
+    app.listen (PORT, () => {
+
+      console.log (`[${getTimestamp ()}] Server listening on port ${PORT}`);
+
+    });
+
+  } catch (err) {
+
+    console.error (`[${getTimestamp ()}] Database connetion error:`, err);
+
+  }
+
+}) ();
+
