@@ -1,12 +1,12 @@
 
 
-/*
-Este archivo contiene la configuración para la conexión a la base de datos MongoDB
-utilizando el módulo mongoose. La función `dbCon` es asíncrona y maneja la conexión
-a través de un URI proporcionado. En caso de una conexión exitosa, se imprime un 
-mensaje en la consola. Si la conexión falla, se captura el error y se detiene el 
-proceso del servidor.
-*/
+/**
+ * This file contains the configuration for connecting to the MongoDB database
+ * using the Mongoose module. The `dbCon` function is asynchronous and handles
+ * the connection using the provided URI from environment variables.
+ * If the connection is successful, a message is logged to the console.
+ * If the connection fails, the error is logged and the server process is terminated.
+ */
 
 const mongoose = require ("mongoose");
 
@@ -14,22 +14,25 @@ const dbCon = async () => {
 
   try {
 
-    await mongoose.connect (
+      const uri = process.env.MONGODB_URI;
 
-      "mongodb+srv://oscarpadillaha:Omongodb2024@prueba.o9nyp.mongodb.net/movies",
+      if (!uri) {
 
-    );
+        throw new Error ("MONGODB_URI is not defined in the .env file")
+      
+      }
 
-    console.log ("CONEXIÓN EXITOSA A LA BASE DE DATOS MongoDB");
+    await mongoose.connect (uri);
+    console.log ("Successfully connected to the MongoDB database.");
 
   } catch (error) {
 
-    console.error ("ERROR AL CONECTAR A LA BASE DE DATOS:", error);
-    process.exit (1); /*Finaliza el proceso si hay un error de conexión*/
+    console.error ("Failed to connect to the MongoDB database:", error);
+    process.exit (1); 
 
   }
   
 };
 
-module.exports = dbCon;
+module.exports =  dbCon;
 

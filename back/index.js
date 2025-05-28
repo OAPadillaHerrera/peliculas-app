@@ -2,18 +2,20 @@
 
 /**
  * Entry point for the application.
+ * - Loads environment variables.
  * - Connects to the database.
- * - Starts the server if the connection is successful.
+ * - Starts the server.
  */
 
-require ("dotenv").config (); 
+require ("dotenv").config ();
 const app = require ("./src/server");
-const dbCon = require ("./src/config/dbCon");
+const dbCon  = require ("./src/config/dbCon");
 const PORT = process.env.PORT || 3000;
 
 if (!process.env.PORT) {
 
   console.warn ("[WARN] PORT not set in .env, defaulting to 3000");
+
 }
 
 const getTimestamp = () => new Date ().toISOString ();
@@ -33,7 +35,8 @@ const getTimestamp = () => new Date ().toISOString ();
 
   } catch (err) {
 
-    console.error (`[${getTimestamp ()}] Database connetion error:`, err);
+    console.error (`[${getTimestamp ()}] Database connection error:`, err);
+    process.exit(1);
 
   }
 
