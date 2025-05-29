@@ -1,32 +1,27 @@
 
 
-/*
-Este archivo configura y expone el servidor Express:
-- Incluye los middleware `morgan` para registro de solicitudes y `cors` para permitir peticiones entre dominios.
-- Permite el manejo de solicitudes en formato JSON.
-- Define un enrutador para gestionar las rutas principales de la aplicación.
-*/
+/**
+ * Express server configuration
+ * - Uses morgan for request logging.
+ * - Enables CORS for cross-origin requests.
+ * - Parses incoming JSON requests.
+ * - Mounts application routes.
+ */
 
 const express = require ("express");
-const router = require ("./routes/index");
-
-const app = express ();
-
 const morgan = require ("morgan");
 const cors = require ("cors");
-
+const router = require ("./routes");/*/index*/
+const app = express ();
 app.use (morgan ("dev"));
 app.use (cors ());
 app.use (express.json ());
 
-/* Utilizar middleware propio/"customizado":*/
-/*app.use ((req, res, next) => {
+app.get ("/", (req, res) => {
 
-    console.log (".¡ESTAMOS PASANDO POR MI PROPIO MIDDLEWARE! ...");
-    next ();
+    res.json ({ message: "Movies API is running" });
 
-});*/
+});
 
-app.use (router);
-
+app.use ("/api", router);
 module.exports = app;

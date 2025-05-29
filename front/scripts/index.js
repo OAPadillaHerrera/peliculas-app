@@ -18,7 +18,7 @@ const fetchPeliculas = async () => {
   try {
 
   console.log ("CARGANDO Peliculas ..." );
-  const data = await axios.get ("http://localhost:3000/movies"/*"https://students-api.up.railway.app/movies"*/);
+  const data = await axios.get ("http://localhost:3000/api/movies"/*"https://students-api.up.railway.app/movies"*/);
   const movies = data.data;
   console.log (movies);
   /*console.log (data.data);*/
@@ -71,7 +71,7 @@ document.getElementById ('movieForm')?.addEventListener ('submit', async functio
 
   try {
 
-    const response = await axios.post ('http://localhost:3000/movies', {
+    const response = await axios.post ('http://localhost:3000/api/movies', {
 
       title: title,
       year: Number (year),/*Asegurarse de que sea un número*/

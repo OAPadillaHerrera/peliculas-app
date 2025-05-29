@@ -1,30 +1,20 @@
 
-
-/*
-Define las rutas principales de la aplicación utilizando Express. Las rutas disponibles son:
-
-- `/users`: Gestiona las solicitudes relacionadas con los usuarios.
-- `/posts`: Gestiona las solicitudes relacionadas con los posts.
-- `/movies`: Gestiona las solicitudes relacionadas con las películas (agregado en la tarea EXPRESS II).
-
-Se importa cada conjunto de rutas desde su respectivo archivo y se conecta al enrutador principal.
-*/
-
-/* Aquí vamos a definir las "rutas" a través de las cuales nos podemos comunicar.*/
-
-/* Tengo definida la solicitud a GET /users => controlador*/
+/**
+ * Main application router.
+ * 
+ * Defines the following route groups:
+ * - /api/users   → userRouter
+ * - /api/posts   → postRouter
+ * - /api/movies  → movieRouter
+ */
 
 const {Router} = require ("express");
-
 const userRouter = require ("./userRouter");
 const postRouter = require ("./postRouter");
-const movieRouter = require ("./movieRouter"); /*Agregado para tarea EXPRESS II.*/
-
+const movieRouter = require ("./movieRouter");
 const router = Router ();
-
 router.use ("/users", userRouter);
 router.use ("/posts", postRouter);
-router.use ("/movies", movieRouter); /*Agregado para tarea EXPRESS II.*/
-
+router.use ("/movies", movieRouter); 
 module.exports = router;
 
