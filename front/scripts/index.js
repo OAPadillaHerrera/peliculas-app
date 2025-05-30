@@ -18,7 +18,7 @@ const fetchPeliculas = async () => {
   try {
 
   console.log ("CARGANDO Peliculas ..." );
-  const data = await axios.get ("http://localhost:3000/api/movies"/*"https://students-api.up.railway.app/movies"*/);
+  const data = await axios.get ("http://localhost:3000/api/movies");
   const movies = data.data;
   console.log (movies);
   /*console.log (data.data);*/

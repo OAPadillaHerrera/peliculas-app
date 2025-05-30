@@ -2,10 +2,12 @@
 
 /**
  * Express server configuration
+ * ----------------------------
  * - Uses morgan for request logging.
  * - Enables CORS for cross-origin requests.
  * - Parses incoming JSON requests.
- * - Mounts application routes.
+ * - Mounts application routes under /api.
+ * - Includes global error handling middleware.
  */
 
 const express = require ("express");
@@ -24,4 +26,18 @@ app.get ("/", (req, res) => {
 });
 
 app.use ("/api", router);
+
+app.use ((err, req, res, next) => {
+
+  console.error ("[ERROR]", err.stack || err);
+
+  res.status (err.status || 500).json ({
+
+    message: "Internal Server Error",
+    error: process.env.NODE_ENV === "production" ? undefined : err.message,
+
+  });
+
+});
+
 module.exports = app;

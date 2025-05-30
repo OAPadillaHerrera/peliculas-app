@@ -1,23 +1,29 @@
 
 
-/*
-Define las rutas para las operaciones relacionadas con las películas. Utiliza Express Router y conecta 
-los controladores y middlewares correspondientes:
+/**
+ * Movie Routes
+ * ------------
+ * Defines the routes for handling movie-related operations using Express Router.
+ * 
+ * Routes:
+ * - GET /         → Fetch all movies (movieController.getAllMovies)
+ * - POST /        → Create a new movie (validate input first using validateMovieData)
+ * 
+ * Uses:
+ * - asyncHandler to catch asynchronous errors and forward them to Express error middleware.
+ * 
+ * This router is exported to be used in the main server application.
+ */
 
-- `GET /`: Obtiene todas las películas usando `movieController.getAllMovies`.
-- `POST /`: Crea una nueva película, validando los datos con `validateMovieData` antes de llamar a `movieController.createMovie`.
-
-Este router se exporta para ser usado en el enrutador principal.
-*/
-
-const {Router} = require ("express"); 
+const { Router } = require ("express");
+const asyncHandler = require ("express-async-handler");
 
 const movieController = require ("../controllers/movieController");
 const validateMovieData = require ("../middlewares/validateMovieData");
 
 const movieRouter = Router ();
 
-movieRouter.get ("/", movieController.getAllMovies);
-movieRouter.post ("/", validateMovieData, movieController.createMovie);
+movieRouter.get  ("/", asyncHandler (movieController.getAllMovies));
+movieRouter.post ("/", validateMovieData, asyncHandler (movieController.createMovie));
 
 module.exports = movieRouter;
