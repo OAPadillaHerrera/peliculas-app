@@ -7,13 +7,14 @@
  * - Enables CORS for cross-origin requests.
  * - Parses incoming JSON requests.
  * - Mounts application routes under /api.
- * - Includes global error handling middleware.
+ * - Applies global error handling middleware from middlewares/errorHandler.
  */
 
 const express = require ("express");
 const morgan = require ("morgan");
 const cors = require ("cors");
-const router = require ("./routes");/*/index*/
+const router = require ("./routes");
+const errorHandler = require("./middlewares/errorHandler");
 const app = express ();
 app.use (morgan ("dev"));
 app.use (cors ());
@@ -26,18 +27,5 @@ app.get ("/", (req, res) => {
 });
 
 app.use ("/api", router);
-
-app.use ((err, req, res, next) => {
-
-  console.error ("[ERROR]", err.stack || err);
-
-  res.status (err.status || 500).json ({
-
-    message: "Internal Server Error",
-    error: process.env.NODE_ENV === "production" ? undefined : err.message,
-
-  });
-
-});
-
+app.use(errorHandler);
 module.exports = app;

@@ -1,17 +1,23 @@
 
 
-/* 
- Este módulo exporta una función controladora para gestionar la petición de obtener todos los usuarios.
- La función `getAllUsers` maneja una petición GET, llama a la función `getUsers()` para recuperar la lista 
- de usuarios y devuelve una respuesta en formato JSON con un estado HTTP 200 (OK).
-*/
+/**
+ * User Controller
+ * ---------------
+ * Handles the GET request for retrieving users.
+ * 
+ * - getAllUsers: Placeholder function that responds with a message indicating 
+ *   the endpoint is ready for future implementation.
+ * 
+ * Can later be connected to a service or database.
+ */
 
 module.exports = {
 
-    getAllUsers: (req, res) => {
+  getAllUsers: async (req, res) => {
 
-        const users = getUsers ();
-        res.status (200).json (users);
-    },
+    res.status (200).json ({ message: "Users endpoint ready for future implementation" });
 
+  },
+  
 };
+

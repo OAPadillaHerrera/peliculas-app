@@ -1,19 +1,23 @@
 
 
-/*
-Define la ruta para las operaciones relacionadas con los usuarios. Utiliza Express Router y conecta el controlador correspondiente:
+/**
+ * User Routes
+ * -----------
+ * Defines the route for handling user-related operations using Express Router.
+ * 
+ * Routes:
+ * - GET / → Fetch all users using userController.getAllUsers
+ * 
+ * Currently serves as a placeholder for future user management features.
+ */
 
-- `GET /`: Obtiene todos los usuarios usando `userController.getAllUsers`.
-
-Este router se exporta para ser utilizado en el enrutador principal.
-*/
-
-const {Router} = require ("express"); 
+const { Router } = require ("express");
+const asyncHandler = require ("express-async-handler");
 
 const userController = require ("../controllers/userController");
 
 const userRouter = Router ();
 
-userRouter.get ("/", userController.getAllUsers);
+userRouter.get ("/", asyncHandler (userController.getAllUsers));
 
 module.exports = userRouter;

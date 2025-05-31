@@ -1,17 +1,23 @@
 
 
-/* 
-Este módulo exporta una función controladora para gestionar la petición de obtener todas las publicaciones (POSTS).
-La función `getAllPosts` maneja una petición GET, y devuelve una respuesta con estado HTTP 200 y un mensaje 
-de texto que indica que es el endpoint para obtener las publicaciones.
+/**
+ * Post Controller
+ * ---------------
+ * Handles the GET request for retrieving posts.
+ * 
+ * - getAllPosts: Placeholder function that responds with a message indicating 
+ *   the endpoint is ready for future implementation.
+ * 
+ * This controller can later be expanded to interact with a database or service layer.
  */
 
 module.exports = {
 
-    getAllPosts: (req, res) => {
+  getAllPosts: async (req, res) => {
 
-        res.status (200).send ("Endpoint para obtener POSTS");
+    res.status (200).json ({ message: "Posts endpoint ready for future implementation" });
 
-    },
-    
+  },
+
 };
+

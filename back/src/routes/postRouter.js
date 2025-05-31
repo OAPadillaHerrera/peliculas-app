@@ -1,19 +1,23 @@
 
 
-/*
-Define la ruta para las operaciones relacionadas con los posts. Utiliza Express Router y conecta el controlador correspondiente:
+/**
+ * Post Routes
+ * -----------
+ * Defines the route for handling post-related operations using Express Router.
+ * 
+ * Routes:
+ * - GET / → Fetch all posts using postController.getAllPosts
+ * 
+ * Uses:
+ * - asyncHandler to catch asynchronous errors and forward them to global error middleware.
+ * 
+ * This router is exported to be used in the main application router.
+ */
 
-- `GET /`: Obtiene todos los posts usando `postController.getAllPosts`.
-
-Este router se exporta para ser utilizado en el enrutador principal.
-*/
-
-const {Router} = require ("express"); 
-
+const { Router } = require ("express"); 
+const asyncHandler = require ("express-async-handler");
 const postController = require ("../controllers/postController");
-
 const postRouter = Router ();
-
-postRouter.get ("/", postController.getAllPosts);
-
+postRouter.get ("/", asyncHandler (postController.getAllPosts));
 module.exports = postRouter;
+
