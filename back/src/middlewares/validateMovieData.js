@@ -1,41 +1,43 @@
 
 
 /*
-Middleware para validar los datos de una película antes de crearla. Verifica que todos los campos 
-obligatorios estén presentes y que el campo `year` sea un número de 4 dígitos:
+Middleware to validate movie data before creating a new movie entry. It checks that:
 
-- Si faltan campos, responde con un error 400 y un mensaje indicando que todos los campos son obligatorios.
-- Si el campo `year` no tiene un formato válido, responde con un error 400 y un mensaje específico.
-- Si los datos son válidos, continúa con el siguiente middleware o controlador.
+- All required fields are present and not empty.
+- The `year` field is a valid 4-digit number.
 
-Este middleware se exporta para ser usado en las rutas correspondientes.
+- If any required fields are missing or empty, it responds with a 400 error and a message indicating that all fields are required.
+- If the `year` field is not in a valid format, it responds with a 400 error and a specific message.
+- If all data is valid, it proceeds to the next middleware or controller.
+
+This middleware is exported for use in the appropriate route handlers.
 */
 
 function validateMovieData (req, res, next) {
-    
-    const { title, year, director, duration, genre, rate, poster } = req.body;
 
-    if (!title || !year || !director || !duration || !genre || !rate || !poster) {
+  const { title, year, director, duration, genre, rate, poster } = req.body;
 
-        return res.status (400).json ({
+  const requiredFields = [title, year, director, duration, genre, rate, poster];
 
-            error: "TODOS LOS CAMPOS (title, year, director, duration, genre, rate, poster) SON OBLIGATORIOS.",
+  if (!requiredFields.every (field => field !== undefined && field !== null && field !== '')) {
 
-        });
+    return res.status (400).json ({
 
-    }
+      error: "All fields (title, year, director, duration, genre, rate, poster) are required and must not be empty.",
 
-    if (!/^\d{4}$/.test(year)) {
+    });
+  }
 
-        return res.status(400).json ({
-            
-            error: "EL CAMPO 'year' DEBE SER UN NÚMERO DE 4 DÍGITOS.",
+  if (!/^\d{4}$/.test (String (year))) {
 
-        });
+    return res.status (400).json ({
 
-    }
+      error: "The 'year' field must be a 4-digit number (e.g., 1995).",
 
-    next ();
+    });
+  }
+
+  next ();
 
 }
 

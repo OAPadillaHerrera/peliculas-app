@@ -13,11 +13,7 @@
 
 const { Router } = require ("express");
 const asyncHandler = require ("express-async-handler");
-
 const userController = require ("../controllers/userController");
-
 const userRouter = Router ();
-
 userRouter.get ("/", asyncHandler (userController.getAllUsers));
-
 module.exports = userRouter;
