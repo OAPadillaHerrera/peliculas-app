@@ -20,6 +20,6 @@ const asyncHandler = require ("express-async-handler");
 const movieController = require ("../controllers/movieController");
 const validateMovieData = require ("../middlewares/validateMovieData");
 const movieRouter = Router ();
-movieRouter.get  ("/", asyncHandler (movieController.getAllMovies));
+movieRouter.get  ("/", asyncHandler (movieController.getMovies));
 movieRouter.post ("/", validateMovieData, asyncHandler (movieController.createMovie));
 module.exports = movieRouter;

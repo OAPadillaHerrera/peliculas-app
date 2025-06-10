@@ -16,7 +16,7 @@ const moviesService = require ("../services/moviesService");
 
 module.exports = {
 
-  getAllMovies: async (req, res) => {
+  getMovies: async (req, res) => {
 
     const movies = await moviesService.getMovies ();
     res.status (200).json (movies);
@@ -38,4 +38,6 @@ module.exports = {
   },
 
 };
+
+
 
