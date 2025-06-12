@@ -1,149 +1,90 @@
 
-/* Reset CSS*/
 
-/* 
-Este archivo CSS de reinicio (reset.css) elimina el estilo por defecto que los navegadores aplican a los elementos HTML,
-como márgenes, rellenos, bordes y tipografía, garantizando una base uniforme para el diseño en todos los navegadores.
-Se asegura que todos los elementos se comporten de forma consistente y permite que los estilos personalizados se apliquen 
-sin interferencias de los estilos predefinidos. También incluye compatibilidad con elementos HTML5 en navegadores más antiguos.
-*/
+/* modern-css-reset v1.4.0 | MIT License | github.com/hankchizljaw/modern-css-reset */
 
+*,
+*::before,
+*::after {
 
-html,
+  box-sizing: border-box;
+
+}
+
+ul[class],
+ol[class] {
+
+  padding: 0;
+
+}
+
 body,
-div,
-span,
-object,
-iframe,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
 p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
+ul[class],
+ol[class],
 li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
 figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-
-video {
-
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-
-}
-
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
 figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
+blockquote,
+dl,
+dd {
 
-section {
-
-    display: block;
+  margin: 0;
 
 }
 
 body {
 
-    line-height: 1;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 
 }
 
-ol,
+ul[class],
+ol[class] {
 
-ul {
-
-    list-style: none;
-
-}
-
-blockquote,
-
-q {
-
-    quotes: none;
+  list-style: none;
 
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
+a:not([class]) {
 
-q:after {
-
-    content: '';
-    content: none;
+  text-decoration-skip-ink: auto;
 
 }
 
-table {
+img {
 
-    border-collapse: collapse;
-    border-spacing: 0;
+  max-width: 100%;
+  display: block;
 
 }
+
+input,
+button,
+textarea,
+select {
+
+  font: inherit;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+
+  }
+  
+}
+
+

@@ -36,7 +36,6 @@ describe ("Una prueba de test que pasa siempre", () => {
 
 /*-----------------------------------------------------*/
 
-
 describe ("La clase 'CarritoCompra'", () => {
 
     it ("Debe estar definida", () => {
