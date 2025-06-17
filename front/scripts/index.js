@@ -7,23 +7,18 @@ Este archivo contiene la lógica principal de la aplicación:
 - Funcionalidad para limpiar los campos del formulario con un botón de "Borrar".
 */
 
-/*Método con asincronismo:*/
-
 const { displayMovies } = require ('./generateMovieElement.js');
-
 const axios = require ("axios");
 
 const fetchPeliculas = async () => {
 
   try {
 
-  console.log ("CARGANDO Peliculas ..." );
+  console.log ("Cargando Peliculas ..." );
   const data = await axios.get ("http://localhost:3000/api/movies");
   const movies = data.data;
   console.log (movies);
-  /*console.log (data.data);*/
-  console.log ("¡PELÍCULAS CARGADAS CON ÉXITO!");
-
+  console.log ("¡Películas cargadas con Exito!");
   displayMovies (movies);
 
   } catch (err) {
@@ -37,11 +32,7 @@ const fetchPeliculas = async () => {
 
 fetchPeliculas ();
 
-/*--------------*/
-
-
-/*Función para manejar el envío del formulario*/
-document.getElementById ('movieForm')?.addEventListener ('submit', async function(event) {
+document.getElementById ('movieForm')?.addEventListener ('submit', async function (event) {
 
   event.preventDefault ();
 
@@ -55,7 +46,7 @@ document.getElementById ('movieForm')?.addEventListener ('submit', async functio
 
   if (!title || !year || !director || !duration || !genre || !rate || !poster) {
 
-    alert ('POR FAVOR, COMPLETA TODOS LOS CAMPOS.');
+    alert ('Por favor, completa todos los campos.');
 
     return;
 
@@ -63,7 +54,7 @@ document.getElementById ('movieForm')?.addEventListener ('submit', async functio
 
   if (year.length > 4) {
     
-    alert ('EL CAMPO DE AÑO NO PUEDE TENER MAS DE 4 DÍGITOS.');
+    alert ('El campo de año no puede tener mas de 4 dígitod.');
 
     return;
 
@@ -74,31 +65,27 @@ document.getElementById ('movieForm')?.addEventListener ('submit', async functio
     const response = await axios.post ('http://localhost:3000/api/movies', {
 
       title: title,
-      year: Number (year),/*Asegurarse de que sea un número*/
+      year: Number (year),
       director: director,
       duration: duration,
-      genre: genre,/*El género debe ser un array*/
+      genre: genre,
       rate: Number (rate),
       poster: poster
 
     });
 
-    alert ('PELÍCULA CREADA EXITOSAMENTE.');
+    alert ('Película creada exitosamente.');
     
   } catch (error) {
 
-    console.error ('ERROR AL CREAR LA PELÍCULA:', error);
-    alert ('HUBO UN PROBLEMA AL CREAR LA PELÍCULA. INTÉNTALO NUEVAMENTE.');
+    console.error ('Error al crear la película:', error);
+    alert ('Hubo un problema al crear la película. Inténtalo nuevamente.');
     
   }
 
 });
 
-/*-----------------------------------------------------------------------*/
-
-
-/*Manejador de eventos para el botón de "Borrar"*/
-document.getElementById ('borrar')?.addEventListener ('click', function(event) {
+document.getElementById (`delete`)?.addEventListener ('click', function (event) {
 
   event.preventDefault ();
   
@@ -109,7 +96,5 @@ document.getElementById ('borrar')?.addEventListener ('click', function(event) {
       input.value = '';
 
   });
-  
-/*Agregar más lógica ...*/
 
 });

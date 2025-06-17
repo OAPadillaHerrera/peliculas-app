@@ -186,7 +186,7 @@ main {
 
 }
 
-.centrar-formulario {
+.center-form {
 
   display: flex;
   flex-wrap: wrap;
@@ -200,7 +200,7 @@ main {
 
 }
 
-.centrar-inputs {
+.center-inputs {
 
   display: flex;
   flex-wrap: wrap;
@@ -210,7 +210,7 @@ main {
 
 }
 
-.centrar-botones {
+.center-buttons {
 
   display: flex;
   flex-wrap: wrap;
@@ -221,7 +221,7 @@ main {
 
 }
 
-.botones {
+.buttons {
 
   background-color: white;
   color: gray;
@@ -247,21 +247,21 @@ main {
 
 }
 
-.justificarh3rec {
+.justifyh3rec {
 
   text-align: justify;
   color: lightblue;
 
 }
 
-.justificarh3adn {
+.justifyh3adn {
 
   text-align: center;
   color: lightblue;
 
 }
 
-.justificarpadn {
+.justifypadn {
 
   text-align: justify;
 
@@ -288,7 +288,7 @@ main {
 
   }
 
-  .centrar-formulario {
+  .center-form {
 
     margin: 1rem;
 
