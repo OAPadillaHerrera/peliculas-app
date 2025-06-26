@@ -1,11 +1,23 @@
 
 
-/*
-Este archivo contiene la lógica principal de la aplicación:
-- Carga de películas desde una API mediante una solicitud asíncrona.
-- Manejo del formulario para la creación de nuevas películas, con validaciones y envío de datos al servidor.
-- Funcionalidad para limpiar los campos del formulario con un botón de "Borrar".
+/* 
+This JavaScript file manages the core functionality of the "Cine de Culto" portal.
+
+It includes functions to fetch movies from a local API, dynamically display them,
+and handle the creation of new movies through an interactive form. 
+It also provides a feature to reset the form fields easily.
+
+The code structure follows best development practices: asynchronous functions 
+for HTTP requests, robust error handling, and input validation to ensure a smooth 
+and secure user experience.
+
+Axios is used for backend communication, and the external module 
+`generateMovieElement.js` is used to render movie elements.
+
+This script is designed to integrate seamlessly with a responsive interface
+and a sleek dark-themed visual style, consistent with the overall portal aesthetics.
 */
+
 
 const { displayMovies } = require ('./generateMovieElement.js');
 const axios = require ("axios");
@@ -35,7 +47,6 @@ fetchPeliculas ();
 document.getElementById ('movieForm')?.addEventListener ('submit', async function (event) {
 
   event.preventDefault ();
-
   const title = document.getElementById ('title').value;
   const year = document.getElementById ('year').value;
   const director = document.getElementById ('director').value;

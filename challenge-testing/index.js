@@ -1,67 +1,64 @@
 
 
-// Define la clase CarritoCompra.
+/* 
+This JavaScript module defines the `CarritoCompra` class, which provides basic 
+shopping cart functionality for managing products and calculating totals.
+
+Main features include:
+- `agregarProducto (...producto)`: Adds one or multiple product objects (with name and price) to the cart.
+- `calcularTotal ()`: Calculates the total price of all products currently in the cart.
+- `aplicarDescuento (porcentaje)`: Applies a percentage-based discount to the total and returns the reduced amount.
+
+This class is intended for testing purposes.
+*/
+
+/* Consigna, HOMEWORK:
+Desarrolla una clase en JavaScript llamada CarritoCompra que represente un carrito de compras. La clase debe tener los siguientes métodos:
+
+1. constructor (): Inicializa el carrito como un array vacío.
+2. agregarProducto (producto): Recibe un objeto representando un producto y lo agrega al carrito.
+3. calcularTotal (): Calcula el total de la compra sumando los precios de todos los productos en el carrito.
+4. aplicarDescuento (porcentaje): Aplica un descuento al total de la compra según el porcentaje especificado.
+*/
+
 class CarritoCompra {
 
-    // Construye la clase, e inicializa un array vacío para el carrito.
     constructor () {
 
-        this.carrito = [];  // Array para almacenar los productos.
+        this.carrito = [];  
 
     }
 
-    // Método para agregar productos al carrito.
     agregarProducto (...producto) {
 
-        // Agrega cada producto recibido como argumento al array 'carrito'.
         this.carrito.push (...producto);
-        return this.carrito;  // Devuelve el contenido actualizado del carrito.
+        return this.carrito;  
 
     }  
 
-    // Método para calcular el total del precio de los productos en el carrito.
     calcularTotal () {
 
-        let total = 0;  // Variable para almacenar el total.
+        let total = 0;  
 
-        // Itera sobre todos los productos en el carrito.
         for (let i = 0; i < this.carrito.length; i++) {
 
-            // Suma el precio de cada producto al total.
             total += this.carrito [i].precio;
 
         }
 
-        return total;  // Devuelve el total calculado.
+        return total;  
 
     }
 
-    // Método para aplicar un descuento al total del carrito.
     aplicarDescuento (porcentaje) {
 
-        // Calcula el total con descuento restando un porcentaje del total.
         let descuento = this.calcularTotal () * (1 - (porcentaje / 100));
-        return descuento;  // Devuelve el total con el descuento aplicado.
+        return descuento;  
+
     }
 
 }
 
-// Crea una instancia de la clase CarritoCompra.
-const miCarrito = new CarritoCompra ();
-
-// Agrega varios productos al carrito.
-miCarrito.agregarProducto (
-
-    { producto: "TOMATE", precio: 500 }, 
-    { producto: "CEBOLLA", precio: 400 }, 
-    { producto: "AJO", precio: 300 }
-
-);
-
-// Comentar o descomentar la siguiente línea para ver el total con un descuento aplicado
-// console.log(miCarrito.aplicarDescuento(10));
-
-// Exporta la clase para poder usarla en otros módulos
 module.exports = CarritoCompra;
 
 

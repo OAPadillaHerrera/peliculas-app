@@ -1,28 +1,25 @@
 
 
-/*
-Este archivo define la clase `CarritoCompra´, que simula el
-funcionamiento de un carrito de compras. La clase incluye métodos para 
-agregar productos, calcular el total de la compra y aplicar descuentos.
- 
-También se han implementado pruebas unitarias utilizando Jest para asegurar 
-la correcta funcionalidad de los métodos en diversos escenarios.
- 
-Métodos principales: agregarProducto, calcularTotal y aplicarDescuento.
+/* 
+This test file validates the functionality of the `CarritoCompra` class using the Jest testing framework.
+
+The tests cover the following aspects:
+- Class existence and initial state of the cart.
+- Functionality of `agregarProducto ()` for adding one or multiple products.
+- Correct calculation of the total price with `calcularTotal ()`.
+- Application of discounts through `aplicarDescuento ()` with various percentages.
+
+Each test is designed to ensure accurate behavior across different scenarios, supporting reliable 
+unit testing practices and reinforcing code stability during development.
+
+This file is intended for educational and practice purposes in testing JavaScript classes.
+*/
+
+/* Consigna, HOMEWORK:
+Escribir pruebas unitarias utilizando Jest para asegurarte de que la clase CarritoCompra funciona correctamente en diferentes escenarios.
 */
 
 const CarritoCompra = require ("../index");
-
-/* Consignas, HOMEWORK:
-Desarrolla una clase en JavaScript llamada CarritoCompra que represente un carrito de compras. La clase debe tener los siguientes métodos:
-
-1. constructor(): Inicializa el carrito como un array vacío.
-2. agregarProducto(producto): Recibe un objeto representando un producto y lo agrega al carrito.
-3. calcularTotal(): Calcula el total de la compra sumando los precios de todos los productos en el carrito.
-4. aplicarDescuento(porcentaje): Aplica un descuento al total de la compra según el porcentaje especificado.
-
-Escribir pruebas unitarias utilizando Jest para asegurarte de que la clase CarritoCompra funciona correctamente en diferentes escenarios.
-*/
 
 describe ("Una prueba de test que pasa siempre", () => {
 
@@ -41,19 +38,19 @@ describe ("La clase 'CarritoCompra'", () => {
     it ("Debe estar definida", () => {
 
         expect (CarritoCompra).toBeDefined (); 
+
     });
 
     it ("El tamaño inicial del array 'carrito' debe ser cero", () => {
 
-        const miCarrito = new CarritoCompra();
-        expect (miCarrito.carrito.length).toBe(0); 
+        const miCarrito = new CarritoCompra ();
+        expect (miCarrito.carrito.length).toBe (0); 
 
     });
 
 });
 
 /*-----------------------------------------------------*/
-
 
 describe ("El método 'agregarProducto'", () => {
 
@@ -63,8 +60,8 @@ describe ("El método 'agregarProducto'", () => {
 
         miCarrito.agregarProducto (
 
-            { producto: "TOMATE", precio: 500},
-            { producto: "CEBOLLA", precio: 400}
+            { producto: "Tomate", precio: 500},
+            { producto: "Cebolla", precio: 400}
 
         );
 
@@ -74,6 +71,8 @@ describe ("El método 'agregarProducto'", () => {
 
 });
 
+/*-----------------------------------------------------*/
+
 describe ("El método 'calcularTotal'", () => {
 
     it ("Debe calcular el valor total de todos los productos", () => {
@@ -82,8 +81,8 @@ describe ("El método 'calcularTotal'", () => {
 
         miCarrito.agregarProducto (
 
-            { producto: "TOMATE", precio: 500},
-            { producto: "ZANAHORIA", precio: 700}
+            { producto: "Tomate", precio: 500},
+            { producto: "Zanahoria", precio: 700}
 
         );
 
@@ -96,7 +95,7 @@ describe ("El método 'calcularTotal'", () => {
 
         const miCarrito = new CarritoCompra ();
 
-        miCarrito.agregarProducto ({ producto: "TOMATE", precio: 500 });
+        miCarrito.agregarProducto ({ producto: "Tomate", precio: 500 });
 
         const total = miCarrito.calcularTotal ();
         expect (total).toBe (500); 
@@ -105,6 +104,8 @@ describe ("El método 'calcularTotal'", () => {
 
 });
 
+/*-----------------------------------------------------*/
+
 describe ("El método 'aplicarDescuento'", () => {
 
     it ("Debe descontar un porcentaje del valor total de la compra", () => {
@@ -112,8 +113,8 @@ describe ("El método 'aplicarDescuento'", () => {
 
         miCarrito.agregarProducto (
 
-            { producto: "TOMATE", precio: 500},
-            { producto: "ZANAHORIA", precio: 700}
+            { producto: "Tomate", precio: 500},
+            { producto: "Zanahoria", precio: 700}
 
         );
 
@@ -128,12 +129,12 @@ describe ("El método 'aplicarDescuento'", () => {
 
         miCarrito.agregarProducto (
 
-            { producto: "TOMATE", precio: 500},
-            { producto: "ZANAHORIA", precio: 700}
+            { producto: "Tomate", precio: 500},
+            { producto: "Zanahoria", precio: 700}
 
         );
 
-        const totalDescuento = miCarrito.aplicarDescuento(0);
+        const totalDescuento = miCarrito.aplicarDescuento (0);
         expect (totalDescuento).toBe (1200); 
         
     });
