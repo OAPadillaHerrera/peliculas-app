@@ -15,55 +15,69 @@ to maintain a sober and elegant aesthetic across the interface.
 Responsive adjustments are included to ensure usability across different devices and screen sizes.
 */
 
-body {
-
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  background-color: black;
-  color: white;
-  margin: 0;
-  padding: 0;
-
-}
-
 .main-header {
 
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 1.25rem;
-  background-color: gray;
-  border-bottom: 0.125rem solid lightblue;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  background-color: #1a1a1a; 
+  border-bottom: 2px solid #00bfff; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); 
 
 }
 
 .logo {
 
-  display: flex;  
-  flex-wrap: wrap;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: darkgoldenrod;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffd700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+
+}
+
+.logo i {
+
+  font-size: 2.2rem;
+  color: #ffd700;
+  transition: transform 0.3s ease;
+
+}
+
+.logo:hover i {
+
+  transform: rotate(-10deg);
 
 }
 
 .logo .cine {
 
-  color: white;
+  color: #ffffff;
+  font-weight: 400;
+  opacity: 0.85;
 
 }
 
-#colorh1 {
+#main-title {
 
   text-align: center;
-  color: darkgoldenrod;
-  font-size: 2rem;
-  margin: 1.25rem 0;
+  color: #ffd700; 
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 2rem auto;
+  font-family: 'Cinzel', serif;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  letter-spacing: 1px;
+  max-width: 800px;
+  line-height: 1.4;
 
 }
 
