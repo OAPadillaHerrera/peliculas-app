@@ -19,7 +19,7 @@ and a sleek dark-themed visual style, consistent with the overall portal aesthet
 */
 
 
-const { displayMovies } = require ('./generateMovieElement.js');
+/*const { displayMovies } = require ('./generateMovieElement.js');
 const axios = require ("axios");
 
 const fetchPeliculas = async () => {
@@ -107,5 +107,14 @@ document.getElementById (`delete`)?.addEventListener ('click', function (event) 
       input.value = '';
 
   });
+
+});*/
+
+const { displayMovies } = require ('./generateMovieElement.js');
+const carouselMovies = require ('./carouselMovies.js');
+
+document.addEventListener ('DOMContentLoaded', () => {
+
+  displayMovies(carouselMovies);
 
 });

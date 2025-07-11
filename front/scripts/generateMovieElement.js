@@ -13,79 +13,105 @@ These functions are designed to integrate with Bootstrap’s grid system and car
 providing a clean, elegant, and user-friendly display consistent with the portal’s dark-themed design.
 
 All movie data is received dynamically, allowing seamless updates and modular rendering 
-when new content is added via the backend or user submissions.
-*/
+when new content is added via the backend or user submissions.*/
 
+const carouselGenres = require ('./carouselGenres.js');
 
-function generateMovieElement (movie) {
+function generateMovieElement (movie, index) {
 
-  const colDiv = document.createElement ('div');
-  colDiv.classList.add ('col');  
+  const genre = carouselGenres [index] || 'No genre';
   const cardDiv = document.createElement ('div');
   cardDiv.classList.add ('card', 'h-100', 'card1');
-  const cardBody = document.createElement ('div');
-  cardBody.classList.add ('card-body', 'movie');
-  const titleLink = document.createElement ('a');
-  titleLink.href = `#${movie.title.replace (/\s+/g, '-').toLowerCase ()}`;
-  const title = document.createElement ('h4'); 
-  title.classList.add ('card-title');
-  title.textContent = movie.title;
-  titleLink.appendChild (title);
-  cardBody.appendChild (titleLink);
+  cardDiv.style.width = '18rem';
   const poster = document.createElement ('img');
   poster.src = movie.poster;
   poster.alt = `${movie.title} poster`;
-  poster.classList.add ('card-img-top');
-  cardBody.appendChild (poster);  
-  const year = document.createElement ('p');
-  year.classList.add ('moviecolorp', 'card-text');
-  year.innerHTML = `<strong>Año:</strong> ${movie.year}`;
-  cardBody.appendChild (year);
-  const director = document.createElement ('p');
-  director.classList.add ('moviecolorp', 'card-text');
-  director.innerHTML = `<strong>Director:</strong> ${movie.director}`;
-  cardBody.appendChild (director);  
-  const duration = document.createElement ('p');
-  duration.classList.add ('moviecolorp', 'card-text');
-  duration.innerHTML = `<strong>Duración:</strong> ${movie.duration}`;
-  cardBody.appendChild (duration);  
-  const genre = document.createElement ('p');
-  genre.classList.add ('moviecolorp', 'card-text');
-  genre.innerHTML = `<strong>Géneros:</strong> ${movie.genre.join (', ')}`;
-  cardBody.appendChild (genre);  
-  const rate = document.createElement ('p');
-  rate.classList.add ('moviecolorp', 'card-text');
-  rate.innerHTML = `<strong>Rating:</strong> ${movie.rate}`;
-  cardBody.appendChild (rate);
+  poster.classList.add ('card-img-top', 'poster-hover');
+  cardDiv.appendChild (poster);
+  const cardBody = document.createElement ('div');
+  cardBody.classList.add ('card-body', 'movie');
+  const genreBtn = document.createElement ('button');
+  genreBtn.className = 'genre-btn';
+  genreBtn.textContent = genre;
+  genreBtn.addEventListener ('click', () => filterByGenre (genre));
+  cardBody.appendChild (genreBtn);
   cardDiv.appendChild (cardBody);
-  colDiv.appendChild (cardDiv);
-  return colDiv;
-    
-}  
-  
+  return cardDiv;
+
+}
+
 function displayMovies (movies) {
-  
-  const contenedor = document.getElementById ("dynamic-content");  
-  const row = document.createElement ('div');
-  row.classList.add ('row', 'row-cols-1', 'row-cols-md-3', 'g-3');
 
-  movies.forEach (movie => {
+  const container = document.getElementById ("dynamic-content");
+  container.innerHTML = "";
+  const carousel = document.createElement ("div");
+  carousel.id = "movieCarousel";
+  carousel.classList.add ("carousel", "slide");
+  carousel.setAttribute ("data-bs-ride", "carousel");
+  const inner = document.createElement ("div");
+  inner.classList.add ("carousel-inner");
 
-      const movieElement = generateMovieElement (movie);
-      row.appendChild (movieElement);
+  for (let i = 0; i < movies.length; i += 3) {
+    const item = document.createElement ("div");
+    item.classList.add ("carousel-item");
+    if (i === 0) item.classList.add ("active");
+    const row = document.createElement ("div");
+    row.classList.add ("row", "justify-content-center", "gx-3");
 
-  });
-  
-  contenedor.appendChild (row);
+    for (let j = i; j < i + 3 && j < movies.length; j++) {
+
+      const col = document.createElement ("div");
+      col.classList.add ("col-12", "col-sm-6", "col-md-3", "mb-4", "px-2");
+      const card = generateMovieElement (movies [j], j); 
+      col.appendChild (card);
+      row.appendChild (col);
+
+    }
+
+    item.appendChild (row);
+    inner.appendChild (item);
+
+  }
+
+  const prevBtn = document.createElement ("button");
+  prevBtn.className = "carousel-control-prev";
+  prevBtn.type = "button";
+  prevBtn.setAttribute ("data-bs-target", "#movieCarousel");
+  prevBtn.setAttribute ("data-bs-slide", "prev");
+
+  prevBtn.innerHTML = `
+
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+
+  `;
+
+  const nextBtn = document.createElement ("button");
+  nextBtn.className = "carousel-control-next";
+  nextBtn.type = "button";
+  nextBtn.setAttribute ("data-bs-target", "#movieCarousel");
+  nextBtn.setAttribute ("data-bs-slide", "next");
+
+  nextBtn.innerHTML = `
+
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+
+  `;
+
+  carousel.appendChild (inner);
+  carousel.appendChild (prevBtn);
+  carousel.appendChild (nextBtn);
+  container.appendChild (carousel);
 
 }
 
 module.exports = {
-
-  generateMovieElement,
-  displayMovies
-
+  
+  displayMovies,
+ 
 };
+
 
 
 
