@@ -18,31 +18,7 @@ This script is designed to integrate seamlessly with a responsive interface
 and a sleek dark-themed visual style, consistent with the overall portal aesthetics.
 */
 
-
-/*const { displayMovies } = require ('./generateMovieElement.js');
-const axios = require ("axios");
-
-const fetchPeliculas = async () => {
-
-  try {
-
-  console.log ("Cargando Peliculas ..." );
-  const data = await axios.get ("http://localhost:3000/api/movies");
-  const movies = data.data;
-  console.log (movies);
-  console.log ("¡Películas cargadas con Exito!");
-  displayMovies (movies);
-
-  } catch (err) {
-
-    console.log ("Hubo un error");
-    console.log (err.message);
-
-  }
-  
-};
-
-fetchPeliculas ();
+/*fetchPeliculas ();
 
 document.getElementById ('movieForm')?.addEventListener ('submit', async function (event) {
 
@@ -110,11 +86,38 @@ document.getElementById (`delete`)?.addEventListener ('click', function (event) 
 
 });*/
 
-const { displayMovies } = require ('./generateMovieElement.js');
+const { displayCarousel, displayGrid, filterMoviesByGenre} = require ('./movieRenderer.js');
 const carouselMovies = require ('./carouselMovies.js');
 
 document.addEventListener ('DOMContentLoaded', () => {
 
-  displayMovies(carouselMovies);
+  displayCarousel (carouselMovies);
 
 });
+
+document.addEventListener ("click", function (e) {
+
+  if (e.target.classList.contains ("genre-btn")) {
+
+    const genre = e.target.dataset.genre;
+    handleGenreClick (genre);
+
+  }
+});
+
+async function handleGenreClick (genre) {
+
+  try {
+
+    const res = await fetch ("http://localhost:3000/api/movies");
+    const allMovies = await res.json ();
+    const filtered = filterMoviesByGenre (genre, allMovies);
+    displayGrid (filtered, genre);
+
+  } catch (err) {
+
+    console.error("Error ...:", err);
+
+  }
+
+}

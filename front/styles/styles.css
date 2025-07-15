@@ -197,47 +197,6 @@ main {
 
 }
 
-.carousel-track {
-
-  display: flex;
-  gap: 3rem;
-  overflow-x: auto;
-  padding: 1rem;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-
-}
-
-.carousel-track::-webkit-scrollbar {
-
-  height: 8px;
-
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-
-  background-color: #555;
-  border-radius: 4px;
-
-}
-
-.carousel-title {
-
-  font-family: 'Cinzel', serif;
-  color: #ffd700;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: left;
-
-}
-
-.carousel-track > * {
-
-  flex: 0 0 calc(25% - 3rem);
-  scroll-snap-align: start;
-
-}
-
 .movie {
 
   background-color: #2c2a2a;
@@ -286,20 +245,13 @@ main {
 
 @media (max-width: 768px) {
 
-  .carousel-track {
-
-    gap: 1rem;
-
-  }
-  .carousel-track > * {
-
-    flex: 0 0 80%;
-  }
   .movie {
+
 
     width: 100%;
 
   }
+  
   .main-nav {
 
     width: 100%;
@@ -383,4 +335,55 @@ main {
 
 }
 
+.movie-title {
 
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+
+}
+
+.movie-rating {
+
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+
+}
+
+.genre-col {
+
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0 0.5rem;
+
+}
+
+@media (max-width: 991.98px) {
+
+  .genre-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+  }
+
+}
+
+@media (max-width: 575.98px) {
+
+  .genre-col {
+
+    flex: 0 0 100%;
+    max-width: 100%;
+
+  }
+
+}
+
+.grid-title {
+
+  font-family: 'Cinzel', serif;
+
+}

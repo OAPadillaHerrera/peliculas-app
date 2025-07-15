@@ -17,7 +17,7 @@ when new content is added via the backend or user submissions.*/
 
 const carouselGenres = require ('./carouselGenres.js');
 
-function generateMovieElement (movie, index) {
+function generateCarouselCard (movie, index) {
 
   const genre = carouselGenres [index] || 'No genre';
   const cardDiv = document.createElement ('div');
@@ -33,14 +33,14 @@ function generateMovieElement (movie, index) {
   const genreBtn = document.createElement ('button');
   genreBtn.className = 'genre-btn';
   genreBtn.textContent = genre;
-  genreBtn.addEventListener ('click', () => filterByGenre (genre));
+  genreBtn.dataset.genre = genre;
   cardBody.appendChild (genreBtn);
   cardDiv.appendChild (cardBody);
   return cardDiv;
 
 }
 
-function displayMovies (movies) {
+function displayCarousel (movies) {
 
   const container = document.getElementById ("dynamic-content");
   container.innerHTML = "";
@@ -52,6 +52,7 @@ function displayMovies (movies) {
   inner.classList.add ("carousel-inner");
 
   for (let i = 0; i < movies.length; i += 3) {
+
     const item = document.createElement ("div");
     item.classList.add ("carousel-item");
     if (i === 0) item.classList.add ("active");
@@ -62,7 +63,7 @@ function displayMovies (movies) {
 
       const col = document.createElement ("div");
       col.classList.add ("col-12", "col-sm-6", "col-md-3", "mb-4", "px-2");
-      const card = generateMovieElement (movies [j], j); 
+      const card = generateCarouselCard (movies [j], j); 
       col.appendChild (card);
       row.appendChild (col);
 
@@ -73,6 +74,7 @@ function displayMovies (movies) {
 
   }
 
+  carousel.appendChild (inner);
   const prevBtn = document.createElement ("button");
   prevBtn.className = "carousel-control-prev";
   prevBtn.type = "button";
@@ -106,9 +108,67 @@ function displayMovies (movies) {
 
 }
 
+function filterMoviesByGenre (genre, allMovies) {
+
+  return allMovies.filter (movie => movie.genre.includes (genre));
+
+}
+
+function generateGridCard (movie) {
+
+  const cardDiv = document.createElement ('div');
+  cardDiv.classList.add ('card', 'h-100', 'card1');
+  cardDiv.style.width = '16rem';
+  const poster = document.createElement ('img');
+  poster.src = movie.poster;
+  poster.alt = `${movie.title} poster`;
+  poster.classList.add ('card-img-top', 'poster-hover');
+  cardDiv.appendChild (poster);
+  const cardBody = document.createElement ('div');
+  cardBody.classList.add ('card-body', 'movie');
+  const title = document.createElement ('h5');
+  title.className = 'movie-title text-warning';
+  title.textContent = movie.title;
+  const rate = document.createElement ('p');
+  rate.className = 'movie-rating';
+  rate.textContent = `Rating: ${movie.rate}`;
+  cardBody.appendChild (title);
+  cardBody.appendChild (rate);
+  cardDiv.appendChild (cardBody);
+  return cardDiv;
+
+}
+
+function displayGrid (movies, genre) {
+
+  const container = document.getElementById ('dynamic-content');
+  container.innerHTML = '';
+  const title = document.createElement ('h2');
+  title.classList.add ('text-warning', 'text-center', 'mb-4', 'grid-title');
+  title.textContent = `Movies in ${genre}`;
+  container.appendChild (title);
+  const row = document.createElement ('div');
+  row.classList.add ("row", "justify-content-center", "gx-3");
+
+  movies.forEach ((movie, index) => {
+
+    const col = document.createElement ('div');
+    col.classList.add ("genre-col", "mb-4");
+    const card = generateGridCard (movie);
+    col.appendChild (card);
+    row.appendChild (col);
+
+  });
+
+  container.appendChild (row);
+
+}
+
 module.exports = {
   
-  displayMovies,
+  displayCarousel,
+  filterMoviesByGenre,
+  displayGrid,
  
 };
 
