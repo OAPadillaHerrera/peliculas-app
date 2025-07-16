@@ -364,6 +364,7 @@ main {
 @media (max-width: 991.98px) {
 
   .genre-col {
+
     flex: 0 0 50%;
     max-width: 50%;
 
@@ -385,5 +386,99 @@ main {
 .grid-title {
 
   font-family: 'Cinzel', serif;
+  margin-bottom: 2rem;
 
 }
+
+.filtered-grid {
+
+  max-width: 1200px;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+
+}
+
+.hero {
+
+  position: relative;
+  height: 65vh;
+  background-image: url('https://i.imgur.com/VG4GqY1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hero-overlay {
+
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hero-title {
+
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+}
+
+.glow {
+
+  animation: glowEffect 2s ease-in-out infinite;
+
+}
+
+@keyframes glowEffect {
+
+  0%, 100% {
+
+    text-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 20px #ffc107;
+
+  }
+  50% {
+
+    text-shadow: 0 0 10px #ffdd57, 0 0 20px #ffdd57, 0 0 30px #ffdd57;
+
+  }
+
+}
+
+.scroll-down {
+
+  position: absolute;
+  bottom: 15px;
+  font-size: 2rem;
+  color: #ffc107;
+  animation: bounceDown 1.5s infinite;
+
+}
+
+@keyframes bounceDown {
+
+  0%, 100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(10px);
+
+  }
+
+}
+

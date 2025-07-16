@@ -141,16 +141,16 @@ function generateGridCard (movie) {
 
 function displayGrid (movies, genre) {
 
-  const container = document.getElementById ('dynamic-content');
+  const container = document.getElementById ('filtered-grid');
   container.innerHTML = '';
   const title = document.createElement ('h2');
-  title.classList.add ('text-warning', 'text-center', 'mb-4', 'grid-title');
+  title.classList.add ('text-warning', 'text-center', 'grid-title');
   title.textContent = `Movies in ${genre}`;
   container.appendChild (title);
   const row = document.createElement ('div');
   row.classList.add ("row", "justify-content-center", "gx-3");
 
-  movies.forEach ((movie, index) => {
+  movies.forEach ((movie) => {
 
     const col = document.createElement ('div');
     col.classList.add ("genre-col", "mb-4");
