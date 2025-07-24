@@ -115,31 +115,76 @@ function filterMoviesByGenre (genre, allMovies) {
 }
 
 function generateGridCard (movie) {
-  const cardDiv = document.createElement('div');
-  cardDiv.classList.add('card', 'h-100', 'card1');
-  cardDiv.style.width = '16rem';
 
-  const poster = document.createElement('img');
+  const cardDiv = document.createElement ('div');
+  cardDiv.classList.add ('card', 'h-100', 'card1');
+  cardDiv.style.width = '16rem';
+  const poster = document.createElement ('img');
   poster.src = movie.poster;
   poster.alt = `${movie.title} poster`;
-  poster.classList.add('card-img-top', 'poster-hover');
-  cardDiv.appendChild(poster);
-
-  const cardBody = document.createElement('div');
-  cardBody.classList.add('card-body', 'movie');
-
-  const title = document.createElement('h5');
+  poster.classList.add ('card-img-top', 'poster-hover');
+  cardDiv.appendChild (poster);
+  const cardBody = document.createElement ('div');
+  cardBody.classList.add ('card-body', 'movie');
+  const title = document.createElement ('h5');
   title.className = 'movie-title text-warning';
   title.textContent = movie.title;
-
-  const rate = document.createElement('p');
+  const rate = document.createElement ('p');
   rate.className = 'movie-rating';
   rate.textContent = `Rating: ${movie.rate}`;
+  cardBody.appendChild (title);
+  cardBody.appendChild (rate);
+  cardDiv.appendChild (cardBody);
+  cardDiv.addEventListener ('click', () => renderExpandedCard(movie));
 
-  cardBody.appendChild(title);
-  cardBody.appendChild(rate);
-  cardDiv.appendChild(cardBody);
   return cardDiv;
+
+}
+
+function renderExpandedCard (movie) {
+
+  const container = document.getElementById ('movie-detail-card');
+  const overlay = document.getElementById ('movie-detail-overlay');
+  container.innerHTML = ''; 
+  const closeBtn = document.createElement ('button');
+  closeBtn.className = 'btn-close btn-close-white float-end';
+  closeBtn.style.fontSize = '1.2rem';
+
+  closeBtn.addEventListener ('click', () => {
+
+    container.style.display = 'none';
+    overlay.style.display = 'none';
+
+  });
+
+  const content = document.createElement ('div');
+  content.className = "d-flex flex-column flex-md-row align-items-center justify-content-center gap-4";
+
+  content.innerHTML = `
+
+    <div class="text-center">
+      <img src="${movie.poster}" alt="${movie.title} poster"
+          class="img-fluid rounded shadow" style="max-height: 400px;">
+    </div>
+
+    <div class="text-white text-center text-md-start">
+
+      <h3 class="text-warning">${movie.title}</h3>
+      <p><strong>Director:</strong> ${movie.director}</p>
+      <p><strong>Year:</strong> ${movie.year}</p>
+      <p><strong>Duration:</strong> ${movie.duration}</p>
+      <p><strong>Genre:</strong> ${movie.genre.join(', ')}</p>
+      <p><strong>Rating:</strong> ${movie.rate}/10</p>
+
+    </div>
+
+  `;
+
+  container.appendChild (closeBtn);
+  container.appendChild (content);
+  container.style.display = 'block';
+  overlay.style.display = 'block';
+  
 }
 
 function displayGrid (movies, genre) {

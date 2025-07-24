@@ -477,7 +477,44 @@ main {
 
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
+
   transform: scale(1.3);
+
 }
 
+#movie-detail-card {
 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 45%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  display: none;
+  background-color: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.2); 
+  
+}
+
+#movie-detail-overlay {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1040;
+  display: none;
+
+}
+
+.text-warning {
+
+  font-family: 'Cinzel', serif;
+
+}
