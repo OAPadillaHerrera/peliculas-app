@@ -115,28 +115,31 @@ function filterMoviesByGenre (genre, allMovies) {
 }
 
 function generateGridCard (movie) {
-
-  const cardDiv = document.createElement ('div');
-  cardDiv.classList.add ('card', 'h-100', 'card1');
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('card', 'h-100', 'card1');
   cardDiv.style.width = '16rem';
-  const poster = document.createElement ('img');
+
+  const poster = document.createElement('img');
   poster.src = movie.poster;
   poster.alt = `${movie.title} poster`;
-  poster.classList.add ('card-img-top', 'poster-hover');
-  cardDiv.appendChild (poster);
-  const cardBody = document.createElement ('div');
-  cardBody.classList.add ('card-body', 'movie');
-  const title = document.createElement ('h5');
+  poster.classList.add('card-img-top', 'poster-hover');
+  cardDiv.appendChild(poster);
+
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body', 'movie');
+
+  const title = document.createElement('h5');
   title.className = 'movie-title text-warning';
   title.textContent = movie.title;
-  const rate = document.createElement ('p');
+
+  const rate = document.createElement('p');
   rate.className = 'movie-rating';
   rate.textContent = `Rating: ${movie.rate}`;
-  cardBody.appendChild (title);
-  cardBody.appendChild (rate);
-  cardDiv.appendChild (cardBody);
-  return cardDiv;
 
+  cardBody.appendChild(title);
+  cardBody.appendChild(rate);
+  cardDiv.appendChild(cardBody);
+  return cardDiv;
 }
 
 function displayGrid (movies, genre) {
@@ -171,8 +174,5 @@ module.exports = {
   displayGrid,
  
 };
-
-
-
 
 
