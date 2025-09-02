@@ -190,9 +190,9 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 100vh; 
   margin-bottom: 0.8rem;
-  background-image: url('https://i.imgur.com/VG4GqY1.jpg');
+  background-color: #1a1a1a; 
   background-size: cover;
   background-position: center;
 
@@ -202,8 +202,8 @@ main {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center;    
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -215,10 +215,130 @@ main {
 
 .hero-title {
 
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem; 
   font-family: 'Cinzel', serif;
   font-size: 2.8rem;
   font-weight: 600;
+
+}
+
+.login-box {
+
+  width: 100%;
+  max-width: 400px; 
+  margin-bottom: 0.5rem;
+
+}
+
+.login-card {
+
+  background-color: rgba(30, 30, 30, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 320px; 
+  margin: 1rem auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.login-card h2 {
+
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', serif;
+  color: #ffd700; 
+
+}
+
+.login-card .form-label {
+
+  font-family: 'Lora', serif;
+  color: #f5f5f5;
+  font-size: 0.9rem;
+
+}
+
+.login-card .form-control {
+
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+  width: 100%;       
+  max-width: 260px;   
+  margin: 0 auto;   
+  display: block;    
+
+}
+
+
+.login-card .btn {
+  
+  background-color: #ffd700;
+  border: none;
+  font-weight: 600;
+
+}
+
+.login-card .btn:hover {
+
+  background-color: #e6c200;
+
+}
+
+.hero .card {
+
+  background-color: rgba(26, 26, 26, 0.95); 
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+
+}
+
+.hero .card h2 {
+
+  color: #ffd700;
+  font-family: 'Cinzel', serif;
+
+}
+
+.hero .form-label {
+
+  color: #f5f5f5;
+  font-family: 'Lora', serif;
+
+}
+
+.hero .form-control {
+
+  background-color: #2c2a2a;
+  border: 1px solid #444;
+  color: #fff;
+
+}
+
+.hero .form-control:focus {
+
+  background-color: #2c2a2a;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  color: #fff;
+
+}
+
+.hero .btn-warning {
+
+  background-color: #ffd700;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+}
+
+.hero .btn-warning:hover {
+
+  background-color: #e6c200;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 
 }
 
@@ -287,7 +407,6 @@ main {
   margin-bottom: 4rem;
 
 }
-
 
 .movie-carousel-container {
 
@@ -518,3 +637,18 @@ main {
   font-family: 'Cinzel', serif;
 
 }
+
+.space-form {
+
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+
+}
+
+.form-buttons .btn {
+
+  font-weight: 500;   
+  text-transform: uppercase;
+
+}
+
