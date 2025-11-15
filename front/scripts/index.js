@@ -18,101 +18,87 @@ This script is designed to integrate seamlessly with a responsive interface
 and a sleek dark-themed visual style, consistent with the overall portal aesthetics.
 */
 
-/*fetchPeliculas ();
+const { displayCarousel, displayGrid, filterMoviesByGenre } = require('./movieRenderer.js');
+const carouselMovies = require('./carouselMovies.js');
 
-document.getElementById ('movieForm')?.addEventListener ('submit', async function (event) {
+document.getElementById('movieForm')?.addEventListener('submit', async function (event) {
 
-  event.preventDefault ();
-  const title = document.getElementById ('title').value;
-  const year = document.getElementById ('year').value;
-  const director = document.getElementById ('director').value;
-  const duration = document.getElementById ('duration').value;
-  const genre = document.getElementById ('genre').value.split (',');
-  const rate = document.getElementById ('rate').value;
-  const poster = document.getElementById ('poster').value;
+  event.preventDefault();
+
+  const title = document.getElementById('title').value;
+  const year = document.getElementById('year').value;
+  const director = document.getElementById('director').value;
+  const duration = document.getElementById('duration').value;
+  const genre = document.getElementById('genre').value.split(',');
+  const rate = document.getElementById('rate').value;
+  const poster = document.getElementById('poster').value;
 
   if (!title || !year || !director || !duration || !genre || !rate || !poster) {
-
-    alert ('Por favor, completa todos los campos.');
-
+    alert('Por favor, completa todos los campos.');
     return;
-
   }
 
   if (year.length > 4) {
-    
-    alert ('El campo de año no puede tener mas de 4 dígitod.');
-
+    alert('El campo de año no puede tener mas de 4 dígitod.');
     return;
-
   }
 
   try {
-
-    const response = await axios.post ('http://localhost:3000/api/movies', {
-
+    const response = await axios.post('http://localhost:3000/api/movies', {
       title: title,
-      year: Number (year),
+      year: Number(year),
       director: director,
       duration: duration,
       genre: genre,
-      rate: Number (rate),
+      rate: Number(rate),
       poster: poster
-
     });
 
-    alert ('Película creada exitosamente.');
-    
+    alert('Película creada exitosamente.');
+
   } catch (error) {
 
-    console.error ('Error al crear la película:', error);
-    alert ('Hubo un problema al crear la película. Inténtalo nuevamente.');
-    
+    console.error('Error al crear la película:', error);
+    alert('Hubo un problema al crear la película. Inténtalo nuevamente.');
+
   }
 
 });
 
-document.getElementById (`delete`)?.addEventListener ('click', function (event) {
+document.getElementById('delete')?.addEventListener('click', function (event) {
 
-  event.preventDefault ();
-  
-  const inputs = document.querySelectorAll ('#movieForm input');
+  event.preventDefault();
 
-  inputs.forEach (input => {
+  const inputs = document.querySelectorAll('#movieForm input');
 
-      input.value = '';
-
+  inputs.forEach(input => {
+    input.value = '';
   });
 
-});*/
-
-const { displayCarousel, displayGrid, filterMoviesByGenre} = require ('./movieRenderer.js');
-const carouselMovies = require ('./carouselMovies.js');
-
-document.addEventListener ('DOMContentLoaded', () => {
-
-  displayCarousel (carouselMovies);
-
 });
 
-document.addEventListener ("click", function (e) {
+document.addEventListener('DOMContentLoaded', () => {
+  displayCarousel(carouselMovies);
+});
 
-  if (e.target.classList.contains ("genre-btn")) {
+document.addEventListener("click", function (e) {
 
+  if (e.target.classList.contains("genre-btn")) {
     const genre = e.target.dataset.genre;
-    handleGenreClick (genre);
-
+    handleGenreClick(genre);
   }
+
 });
 
-async function handleGenreClick (genre) {
+async function handleGenreClick(genre) {
 
   try {
 
-    const res = await fetch ("http://localhost:3000/api/movies");
-    const allMovies = await res.json ();
-    const filtered = filterMoviesByGenre (genre, allMovies);
-    displayGrid (filtered, genre);
+    const res = await fetch("http://localhost:3000/api/movies");
+    const allMovies = await res.json();
+    const filtered = filterMoviesByGenre(genre, allMovies);
+
+    displayGrid(filtered, genre);
 
   } catch (err) {
 

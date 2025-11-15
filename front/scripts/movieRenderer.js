@@ -74,7 +74,6 @@ function displayCarousel (movies) {
 
   }
 
-  carousel.appendChild (inner);
   const prevBtn = document.createElement ("button");
   prevBtn.className = "carousel-control-prev";
   prevBtn.type = "button";
