@@ -5,7 +5,7 @@ const carouselMovies = [
   {
 
     title: 'Mad Max: Fury Road',
-    poster: '/assets/Kill Bill.png',
+    poster: '/assets/Kill_Bill_ver4.jpg',
     genre: ['Action']
 
   },
@@ -13,7 +13,7 @@ const carouselMovies = [
   {
 
     title: 'Toy Story',
-    poster: '/assets/Toy story.jpg',
+    poster: '/assets/toy_story_ver1.jpg',
     genre: ['Animation']
 
   },
@@ -21,7 +21,7 @@ const carouselMovies = [
   {
 
     title: 'Indiana Jones',
-    poster: '/assets/Pirates of the caribbean.jpg',
+    poster: '/assets/pirates_of_the_caribbean_ver3.jpg',
     genre: ['Adventure']
 
   },
@@ -29,7 +29,7 @@ const carouselMovies = [
   {
 
     title: 'Interstellar',
-    poster: '/assets/2001, a space odyssey.jpg',
+    poster: '/assets/two_thousand_and_one_a_space_odyssey_ver8.jpg',
     genre: ['Science Fiction']
 
   },
@@ -37,14 +37,14 @@ const carouselMovies = [
   {
 
     title: 'Forrest Gump',
-    poster: '/assets/As good as it gets.jpg',
+    poster: '/assets/as_good_as_it_gets.jpg',
     genre: ['Comedy']
 
   },
 
   {
     title: 'The Godfather',
-    poster: '/assets/Heat.jpg',
+    poster: '/assets/heat_ver2.jpg',
     genre: ['Crime']
 
   },
@@ -52,7 +52,7 @@ const carouselMovies = [
   {
 
     title: 'The Shawshank Redemption',
-    poster: '/assets/Schindler list.jpg',
+    poster: '/assets/schindlers_list_ver2.jpg',
     genre: ['Drama']
 
   },
@@ -60,7 +60,7 @@ const carouselMovies = [
   {
 
     title: 'The Lord of the Rings',
-    poster: '/assets/Pans labyrinth.png',
+    poster: '/assets/pans_labyrinth_ver3.jpg',
     genre: ['Fantasy']
 
   },
@@ -68,7 +68,7 @@ const carouselMovies = [
   {
 
     title: 'Titanic',
-    poster: '/assets/Pride&Prejudice.jpg',
+    poster: '/assets/pride_and_prejudice.jpg',
     genre: ['Romance']
 
   },
@@ -76,7 +76,7 @@ const carouselMovies = [
   {
 
     title: 'The Shining',
-    poster: '/assets/The shining.jpg',
+    poster: '/assets/shining_ver2.jpg',
     genre: ['Horror']
 
   }
