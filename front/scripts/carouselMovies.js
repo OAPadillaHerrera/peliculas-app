@@ -4,8 +4,8 @@ const carouselMovies = [
 
   {
 
-    title: 'Mad Max: Fury Road',
-    poster: '/assets/Kill_Bill_ver4.jpg',
+    title: 'Kill Bill Volume I',
+    poster: '/assets/Kill_Bill_VolumeI.webp',
     genre: ['Action']
 
   },
@@ -13,62 +13,62 @@ const carouselMovies = [
   {
 
     title: 'Toy Story',
-    poster: '/assets/toy_story_ver1.jpg',
+    poster: '/assets/Toy_Story.webp',
     genre: ['Animation']
 
   },
 
   {
 
-    title: 'Indiana Jones',
-    poster: '/assets/pirates_of_the_caribbean_ver3.jpg',
+    title: 'Pirates of the Caribbean: The Curse of the Black Pearl',
+    poster: '/assets/Pirates_Of_The_Caribbean.jpg',
     genre: ['Adventure']
 
   },
 
   {
 
-    title: 'Interstellar',
-    poster: '/assets/two_thousand_and_one_a_space_odyssey_ver8.jpg',
+    title: '2001: A Space Odyssey',
+    poster: '/assets/2001_A_Space_Odyssey.webp',
     genre: ['Science Fiction']
 
   },
 
   {
 
-    title: 'Forrest Gump',
-    poster: '/assets/as_good_as_it_gets.jpg',
+    title: 'As Good As It Gets',
+    poster: '/assets/As_Good_As_It_Gets.jpg',
     genre: ['Comedy']
 
   },
 
   {
-    title: 'The Godfather',
-    poster: '/assets/heat_ver2.jpg',
+    title: 'Heat',
+    poster: '/assets/Heat.webp',
     genre: ['Crime']
 
   },
 
   {
 
-    title: 'The Shawshank Redemption',
-    poster: '/assets/schindlers_list_ver2.jpg',
+    title: 'Shindlers List',
+    poster: '/assets/Schindlers_List.webp',
     genre: ['Drama']
 
   },
 
   {
 
-    title: 'The Lord of the Rings',
-    poster: '/assets/pans_labyrinth_ver3.jpg',
+    title: 'Pans Labyrinth',
+    poster: '/assets/Pans_Labyrinth.webp',
     genre: ['Fantasy']
 
   },
 
   {
 
-    title: 'Titanic',
-    poster: '/assets/pride_and_prejudice.jpg',
+    title: 'Pride & Prejudice',
+    poster: '/assets/Pride_&_Prejudice.webp',
     genre: ['Romance']
 
   },
@@ -76,7 +76,7 @@ const carouselMovies = [
   {
 
     title: 'The Shining',
-    poster: '/assets/shining_ver2.jpg',
+    poster: '/assets/The_Shining.webp',
     genre: ['Horror']
 
   }
