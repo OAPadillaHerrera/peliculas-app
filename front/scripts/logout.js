@@ -16,6 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("user");
     localStorage.removeItem("role");
 
-    window.location.href = "./pages/login.html";
+    window.location.href = "/pages/login.html";
   });
 });
