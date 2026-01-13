@@ -22,4 +22,6 @@ const validateMovieData = require ("../middlewares/validateMovieData");
 const movieRouter = Router ();
 movieRouter.get  ("/", asyncHandler (movieController.getMovies));
 movieRouter.post ("/", validateMovieData, asyncHandler (movieController.createMovie));
+movieRouter.put ("/:id", asyncHandler (movieController.updateMovie));
+movieRouter.delete ("/:id", asyncHandler (movieController.softDeleteMovie));
 module.exports = movieRouter;

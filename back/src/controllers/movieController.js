@@ -37,6 +37,33 @@ module.exports = {
 
   },
 
+  updateMovie: async (req, res) => {
+
+    const { id } = req.params;
+    const updateData = req.body;
+
+    const updateMovie = await moviesService.updateMovie(id, updateData);
+
+    res.status(200).json({
+
+      message: "Movie updated succesfully",
+      data: updateMovie,
+
+    })
+
+  },
+
+   softDeleteMovie: async (req, res) => {
+    const { id } = req.params;
+
+    const deleteMovie = await moviesService.softDeleteMovie(id);
+
+    res.status(200).json({
+      message: "Movie disabled succesfully",
+      data: deleteMovie,
+    });
+  },
+
 };
 
 
