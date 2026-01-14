@@ -23,6 +23,11 @@ module.exports = {
 
   },
 
+  getAllMovies: async (req, res) => {
+    const movies = await moviesService.getAllMovies();
+    res.json(movies);
+  },
+
   createMovie: async (req, res) => {
 
     const movieData = req.body;

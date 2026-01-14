@@ -9,19 +9,18 @@
 const Movie = require ("../models/Movie");
 
 const getMovies = async () => {
+  return await Movie.find ( { isActive: true });
+};
 
-  return await Movie.find ({ isActive: true });
-
+const getAllMovies = async () => {
+  return await Movie.find();
 };
 
 const createMovie = async (movieData) => {
-
   return await Movie.create (movieData);
-
 };
 
 const updateMovie = async (id, updateData) => {
-
   const movie = await Movie.findByIdAndUpdate(
     id,
     updateData,
@@ -51,12 +50,11 @@ const softDeleteMovie = async (id) => {
 };
 
 module.exports = {
-
+  getAllMovies,
   getMovies,
   createMovie,
   updateMovie,
-  softDeleteMovie,
-  
+  softDeleteMovie,  
 };
 
 

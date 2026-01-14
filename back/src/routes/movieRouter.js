@@ -15,13 +15,14 @@
  * This router is exported to be used in the main server application.
  */
 
-const { Router } = require ("express");
-const asyncHandler = require ("express-async-handler");
-const movieController = require ("../controllers/movieController");
-const validateMovieData = require ("../middlewares/validateMovieData");
+const { Router } = require("express");
+const asyncHandler = require("express-async-handler");
+const movieController = require("../controllers/movieController");
+const validateMovieData = require("../middlewares/validateMovieData");
 const movieRouter = Router ();
-movieRouter.get  ("/", asyncHandler (movieController.getMovies));
-movieRouter.post ("/", validateMovieData, asyncHandler (movieController.createMovie));
-movieRouter.put ("/:id", asyncHandler (movieController.updateMovie));
-movieRouter.delete ("/:id", asyncHandler (movieController.softDeleteMovie));
+movieRouter.get("/", asyncHandler(movieController.getMovies));
+movieRouter.get("/admin", asyncHandler(movieController.getAllMovies));
+movieRouter.post("/", validateMovieData, asyncHandler(movieController.createMovie));
+movieRouter.put("/:id", asyncHandler(movieController.updateMovie));
+movieRouter.delete("/:id", asyncHandler(movieController.softDeleteMovie));
 module.exports = movieRouter;
